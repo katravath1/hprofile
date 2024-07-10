@@ -5,6 +5,12 @@ jobs:
   code-checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: testing workflow
-        run: echo "welcome to the project"
+      - name: check out the code from repo
+        uses: actions/checkout@v4
+
+      - name: run maven test
+        run: mvn test
+      
+      - name: run code check
+        run: mvn checkstyle:checkstyle
   
